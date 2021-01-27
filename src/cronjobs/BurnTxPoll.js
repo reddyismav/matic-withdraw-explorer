@@ -4,17 +4,14 @@ const { BRIDGE_API_WITHDRAW_ENDPOINT } = require('../constants/constants');
 
 const checkStatusOfPendingBurnTxHashes = async () => {
     checkStatusOfBurnTxHashes('Pending');
-    console.log("xyz");
 };
 
 const checkStatusOfBurntBurnTxHashes = async () => {
     checkStatusOfBurnTxHashes('Burnt');
-    console.log("xyz");
 }
 
 const checkStatusOfBurnTxHashes = async (transactionStatus) => {
     try {
-        console.log("dsasdas");
         const pendingBurnEvents = await BurnTxEvent.find({ status: transactionStatus });
         if (pendingBurnEvents.length < 2) {
             return;
